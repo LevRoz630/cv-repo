@@ -1,0 +1,75 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for Cover Letter
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+\documentclass[11pt, a4paper]{awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=1.2cm, right=1.4cm, bottom=1.2cm, footskip=.4cm}
+
+% Color for highlights - Black and white theme
+\definecolor{awesome}{HTML}{000000}
+\definecolor{darktext}{HTML}{000000}
+\definecolor{text}{HTML}{333333}
+\definecolor{graytext}{HTML}{444444}
+\definecolor{lighttext}{HTML}{666666}
+\definecolor{sectiondivider}{HTML}{000000}
+
+\setbool{acvSectionColorHighlight}{false}
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+\name{Lev}{Rozanov}
+\position{Quantitative Research{\enskip\cdotp\enskip}Algorithmic Trading{\enskip\cdotp\enskip}Mathematics \& Economics}
+\address{St Andrews, Scotland, United Kingdom}
+
+\mobile{(+44) 7444 058 016}
+\email{l.rozanov@outlook.com}
+\github{LevRoz630}
+\linkedin{lev-rozanov}
+
+
+%-------------------------------------------------------------------------------
+%	LETTER INFORMATION
+%-------------------------------------------------------------------------------
+\recipient
+  {IMC Trading Recruitment}
+  {IMC Trading B.V.\\Amsterdam, Netherlands}
+\letterdate{\today}
+\lettertitle{Application: Launchpad Programme -- Trading}
+\letteropening{Dear IMC Recruitment Team,}
+\letterclosing{Regards,}
+\letterenclosure[Attached]{Curriculum Vitae}
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makecvheader[C]
+
+\makecvfooter
+  {}
+  {Lev Rozanov~~~·~~~Cover Letter}
+  {}
+
+\makelettertitle
+
+\begin{cvletter}
+
+I built a market-making strategy with dynamic spread adjustment that placed top 5\% among 10,000+ participants in IMC's global event. I now run a live execution system on Binance managing \$10K+ in capital. It processes order flow in real time and adjusts quotes based on inventory risk---the same core loop IMC operates at scale.
+
+Speed under uncertainty is the edge. At ENODA I cut computation time by 98\% (50s to <1s) by eliminating bottlenecks in production code. Under timed pressure I placed top 11/1,000+ via statistical arbitrage and 1st across all cohorts in a separate event. Both required fast inference on incomplete data.
+
+Trader mentorship will compress feedback loops on decisions I currently evaluate over weeks; simulation and poker pressure-test that inference live. I graduate in 2028, am UK-based, and available May 4--6.
+
+\end{cvletter}
+
+\makeletterclosing
+
+\end{document}

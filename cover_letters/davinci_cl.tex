@@ -1,0 +1,75 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for Cover Letter
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+\documentclass[11pt, a4paper]{awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=1.2cm, right=1.4cm, bottom=1.2cm, footskip=.4cm}
+
+% Color for highlights - Black and white theme
+\definecolor{awesome}{HTML}{000000}
+\definecolor{darktext}{HTML}{000000}
+\definecolor{text}{HTML}{333333}
+\definecolor{graytext}{HTML}{444444}
+\definecolor{lighttext}{HTML}{666666}
+\definecolor{sectiondivider}{HTML}{000000}
+
+\setbool{acvSectionColorHighlight}{false}
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+\name{Lev}{Rozanov}
+\position{Quantitative Research{\enskip\cdotp\enskip}Algorithmic Trading{\enskip\cdotp\enskip}Mathematics \& Economics}
+\address{St Andrews, Scotland, United Kingdom}
+
+\mobile{(+44) 7444 058 016}
+\email{l.rozanov@outlook.com}
+\github{LevRoz630}
+\linkedin{lev-rozanov}
+
+
+%-------------------------------------------------------------------------------
+%	LETTER INFORMATION
+%-------------------------------------------------------------------------------
+\recipient
+  {Da Vinci Recruitment}
+  {Da Vinci\\Amsterdam, Netherlands}
+\letterdate{\today}
+\lettertitle{Application: Quant Trading Internship}
+\letteropening{Dear Da Vinci Team,}
+\letterclosing{Regards,}
+\letterenclosure[Attached]{Curriculum Vitae}
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makecvheader[C]
+
+\makecvfooter
+  {}
+  {Lev Rozanov~~~·~~~Cover Letter}
+  {}
+
+\makelettertitle
+
+\begin{cvletter}
+
+I built a live execution system on Binance: \$10K in capital, real-time order flow, inventory-based quoting. For IMC's competition I developed a market-making strategy with dynamic spread adjustment. I learned through iteration; Da Vinci's program structures that process.
+
+Theory classes accelerate hypothesis formation: understanding spread dynamics before coding them into a strategy. Simulated trading compresses feedback on quoting and risk decisions; what I currently evaluate over weeks, I'd iterate on daily. Programming sessions build on ENODA work, where I cut computation latency by 98\% through vectorization. The project phase integrates all three.
+
+I graduate in 2028 from Mathematics \& Economics at St Andrews. The intern-to-full-time pathway fits. I want to build a trading career here.
+
+\end{cvletter}
+
+\makeletterclosing
+
+\end{document}

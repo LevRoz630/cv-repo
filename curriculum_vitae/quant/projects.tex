@@ -1,0 +1,39 @@
+%-------------------------------------------------------------------------------
+%	SECTION TITLE
+%-------------------------------------------------------------------------------
+\cvsection{Projects}
+
+
+%-------------------------------------------------------------------------------
+%	CONTENT
+%-------------------------------------------------------------------------------
+\begin{cventries}
+
+%---------------------------------------------------------
+  \cventry
+    {Creator} % Role
+    {crypto-backtester -- Open-Source Backtesting Library} % Project name
+    {\href{https://pypi.org/project/crypto-backtester/}{PyPI} · \href{https://github.com/LevRoz630/crypto-backtester}{GitHub}} % Link
+    {} % Date
+    {
+      \begin{cvitems}
+        \item {Published Python backtesting library on PyPI with CI/CD pipeline; computes Sharpe ratio, max drawdown, and PnL with reproducible seeds.}
+        \item {Built modular strategy interface supporting vectorized and event-driven execution; includes example notebooks with 5-minute run paths.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Co-Developer} % Role
+    {Real-Time Market Data Infrastructure} % Project name
+    {Python, WebSocket, REST API} % Tech stack
+    {} % Date
+    {
+      \begin{cvitems}
+        \item {Built streaming pipeline delivering \textbf{1-second OHLCV bars} via WebSocket to TradingView frontend; handles 5,000+ equity symbols.}
+        \item {Achieved \textbf{86 unit tests} with pytest covering live candle aggregation, timezone alignment, and API edge cases.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+\end{cventries}
