@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lev Rozanov - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .cv-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .cv-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cv-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        .cv-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        .cv-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+        .btn-primary {
+            background: #000;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #333;
+        }
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lev Rozanov</h1>
+        <p class="subtitle">Mathematics & Economics Student · Software Engineer · Quantitative Research</p>
+
+        <div class="cv-cards">
+            <div class="cv-card">
+                <h2>Software Engineering</h2>
+                <p>Full-stack development, AI systems, and software engineering experience</p>
+                <div class="buttons">
+                    <a href="swe.html" class="btn btn-primary">View Resume</a>
+                    <a href="docs/swe-resume.pdf" download class="btn btn-secondary">Download PDF</a>
+                </div>
+            </div>
+
+            <div class="cv-card">
+                <h2>Quantitative Finance</h2>
+                <p>Algorithmic trading, quantitative research, and financial modeling</p>
+                <div class="buttons">
+                    <a href="quant.html" class="btn btn-primary">View Resume</a>
+                    <a href="docs/quant-resume.pdf" download class="btn btn-secondary">Download PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>PDFs are automatically generated and updated via CI/CD</p>
+        </footer>
+    </div>
+</body>
+</html>
