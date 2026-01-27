@@ -16,7 +16,7 @@
 \documentclass[11pt, a4paper]{awesome-cv}
 
 % Configure page margins with geometry
-\geometry{left=1.4cm, top=.6cm, right=1.4cm, bottom=1.2cm, footskip=.4cm}
+\geometry{left=1.3cm, top=.45cm, right=1.3cm, bottom=.7cm, footskip=.25cm}
 
 % Color for highlights - Black and white theme
 \definecolor{awesome}{HTML}{000000}
@@ -29,6 +29,10 @@
 % Set false if you don't want to highlight section with awesome color
 \setbool{acvSectionColorHighlight}{false}
 
+% Reduce section spacing
+\renewcommand{\acvSectionTopSkip}{1.5mm}
+\renewcommand{\acvSectionContentTopSkip}{0.5mm}
+
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
@@ -38,7 +42,6 @@
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 \name{Lev}{Rozanov}
-\position{Quantitative Research{\enskip\cdotp\enskip}Algorithmic Trading{\enskip\cdotp\enskip}Mathematics \& Economics}
 \address{St Andrews, Scotland, United Kingdom}
 
 \mobile{(+44) 7444 058 016}
@@ -53,6 +56,9 @@
 % Print the header with above personal information
 % Give optional argument to change alignment(C: center, L: left, R: right)
 \makecvheader[C]
+
+% Compress vertical spacing
+\vspace{-3mm}
 
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
