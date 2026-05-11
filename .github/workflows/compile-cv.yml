@@ -1,0 +1,42 @@
+name: Compile CV
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'cv/**'
+      - '.github/workflows/compile-cv.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compile resume
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex
+          working_directory: cv
+          compiler: xelatex
+          args: -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Stage compiled PDF
+        run: |
+          mkdir -p docs
+          cp cv/resume.pdf docs/resume.pdf
+          ls -lh docs/
+
+      - name: Commit and push PDF
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add docs/resume.pdf
+          git diff --staged --quiet || git commit -m "Auto-compile CV"
+          git push
