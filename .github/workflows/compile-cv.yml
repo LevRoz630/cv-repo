@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - 'cv/**'
+      - 'revolut-so/**'
+      - 'revolut-pot/**'
       - '.github/workflows/compile-cv.yml'
 
 permissions:
@@ -19,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Compile resume
+      - name: Compile default CV
         uses: xu-cheng/latex-action@v3
         with:
           root_file: resume.tex
@@ -27,16 +29,34 @@ jobs:
           compiler: xelatex
           args: -file-line-error -halt-on-error -interaction=nonstopmode
 
-      - name: Stage compiled PDF
+      - name: Compile Revolut Strategy & Operations CV
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex
+          working_directory: revolut-so
+          compiler: xelatex
+          args: -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Compile Revolut Product Owner (Technical) CV
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex
+          working_directory: revolut-pot
+          compiler: xelatex
+          args: -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Stage compiled PDFs
         run: |
           mkdir -p docs
           cp cv/resume.pdf docs/resume.pdf
+          cp revolut-so/resume.pdf docs/revolut-so.pdf
+          cp revolut-pot/resume.pdf docs/revolut-pot.pdf
           ls -lh docs/
 
-      - name: Commit and push PDF
+      - name: Commit and push PDFs
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add docs/resume.pdf
-          git diff --staged --quiet || git commit -m "Auto-compile CV"
+          git add docs/
+          git diff --staged --quiet || git commit -m "Auto-compile CVs"
           git push
