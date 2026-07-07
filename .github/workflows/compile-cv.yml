@@ -11,6 +11,7 @@ on:
       - 'blackrock-am/**'
       - 'blackrock-rqa-audit/**'
       - 'blackrock-client-experience/**'
+      - 'edf-trading/**'
       - '.github/workflows/compile-cv.yml'
 
 permissions:
@@ -72,6 +73,14 @@ jobs:
           compiler: xelatex
           args: -file-line-error -halt-on-error -interaction=nonstopmode
 
+      - name: Compile EDF Trading Summer Internship CV
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex
+          working_directory: edf-trading
+          compiler: xelatex
+          args: -file-line-error -halt-on-error -interaction=nonstopmode
+
       - name: Stage compiled PDFs
         run: |
           mkdir -p docs
@@ -81,6 +90,7 @@ jobs:
           cp blackrock-am/resume.pdf docs/blackrock-am.pdf
           cp blackrock-rqa-audit/resume.pdf docs/blackrock-rqa-audit.pdf
           cp blackrock-client-experience/resume.pdf docs/blackrock-client-experience.pdf
+          cp edf-trading/resume.pdf docs/edf-trading.pdf
           ls -lh docs/
 
       - name: Commit and push PDFs
