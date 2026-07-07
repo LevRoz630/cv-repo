@@ -8,6 +8,9 @@ on:
       - 'cv/**'
       - 'revolut-so/**'
       - 'revolut-pot/**'
+      - 'blackrock-am/**'
+      - 'blackrock-rqa-audit/**'
+      - 'blackrock-client-experience/**'
       - '.github/workflows/compile-cv.yml'
 
 permissions:
@@ -45,12 +48,39 @@ jobs:
           compiler: xelatex
           args: -file-line-error -halt-on-error -interaction=nonstopmode
 
+      - name: Compile BlackRock Analytics & Modeling CV
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex
+          working_directory: blackrock-am
+          compiler: xelatex
+          args: -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Compile BlackRock RQA + Audit CV
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex
+          working_directory: blackrock-rqa-audit
+          compiler: xelatex
+          args: -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Compile BlackRock Client Experience CV
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex
+          working_directory: blackrock-client-experience
+          compiler: xelatex
+          args: -file-line-error -halt-on-error -interaction=nonstopmode
+
       - name: Stage compiled PDFs
         run: |
           mkdir -p docs
           cp cv/resume.pdf docs/resume.pdf
           cp revolut-so/resume.pdf docs/revolut-so.pdf
           cp revolut-pot/resume.pdf docs/revolut-pot.pdf
+          cp blackrock-am/resume.pdf docs/blackrock-am.pdf
+          cp blackrock-rqa-audit/resume.pdf docs/blackrock-rqa-audit.pdf
+          cp blackrock-client-experience/resume.pdf docs/blackrock-client-experience.pdf
           ls -lh docs/
 
       - name: Commit and push PDFs
