@@ -201,7 +201,12 @@
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
-\newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
+\newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\acvPositionCase\color{lighttext} #1}}
+% Roboto ships no small-caps face. Some TeX installs synthesise one and some render the text
+% unchanged, so \scshape here made the output depend on the machine: locally it set small caps
+% and lines broke one way, on the GitHub runner it did nothing and they broke another, which is
+% how a spacing fix could pass here and ship broken. \acvPositionCase keeps it to one answer.
+\newcommand*{\acvPositionCase}{}
 \newcommand*{\sectionstyleface}[1]{{\fontsize{13pt}{1em}\bodyfont\bfseries #1}}
 \newcommand*{\sectionstyle}[1]{%
   \def\@acvSectionTmp{#1}
@@ -215,7 +220,7 @@
 
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
+\newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\acvPositionCase\color{graytext} #1}}
 \newcommand*{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}

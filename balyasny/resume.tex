@@ -30,6 +30,12 @@
 % Set false if you don't want to highlight section with awesome color
 \setbool{acvSectionColorHighlight}{false}
 
+% \parskip's default differs between TeX Live versions, and the class loads parskip without
+% pinning it. Left alone, every paragraph break on the page is worth a different amount here
+% than on the GitHub runner -- about 80pt over a full CV, which is why the published PDF and
+% the local one disagreed on how much of the page was used. Pin it so both builds agree.
+\setlength{\parskip}{0pt}
+
 % Section and entry spacing. These are the levers for filling the page: the content
 % is fixed at one page, so the slack goes here rather than into a bottom margin.
 \renewcommand{\acvSectionTopSkip}{0.3mm}
