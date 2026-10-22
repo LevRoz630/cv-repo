@@ -466,6 +466,8 @@
 % Gap before each \cventry. Set in resume.tex; it is the only lever that spaces
 % entries apart, so it must stay positive or entries climb into the one above.
 \newcommand{\acvEntryTopSkip}{1.5mm}
+% Gap between the Skills section rule and the first skill row. See \cvskills below.
+\newcommand{\acvSkillsTopSkip}{4mm}
 
 
 %-------------------------------------------------------------------------------
@@ -791,7 +793,11 @@
 
 % Define an environment for cvskill
 \newenvironment{cvskills}{%
+  % A bare tabularx starts flush against the section rule -- measured at -3.3pt, i.e. the first
+  % row printing above the heading's baseline, where `cventries` sections sit 10-13pt clear.
+  % \acvSkillsTopSkip buys that gap back so every section heading is spaced the same way.
   \vspace{\acvSectionContentTopSkip}
+  \vspace{\acvSkillsTopSkip}
     \setlength\tabcolsep{1ex}
     \setlength{\extrarowheight}{0pt}
     \tabularx{\textwidth}{r>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}X}
