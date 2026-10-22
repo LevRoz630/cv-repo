@@ -472,7 +472,7 @@
 % entries apart, so it must stay positive or entries climb into the one above.
 \newcommand{\acvEntryTopSkip}{1.5mm}
 % Gap between the Skills section rule and the first skill row. See \cvskills below.
-\newcommand{\acvSkillsTopSkip}{1.7mm}
+\newcommand{\acvSkillsTopSkip}{4.1mm}
 
 
 %-------------------------------------------------------------------------------
