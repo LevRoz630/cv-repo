@@ -12,6 +12,7 @@ on:
       - 'blackrock-rqa-audit/**'
       - 'blackrock-client-experience/**'
       - 'edf-trading/**'
+      - 'balyasny/**'
       - '.github/workflows/compile-cv.yml'
 
 permissions:
@@ -81,6 +82,14 @@ jobs:
           compiler: xelatex
           args: -file-line-error -halt-on-error -interaction=nonstopmode
 
+      - name: Compile Balyasny Macro & Commodities Quant CV
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex
+          working_directory: balyasny
+          compiler: xelatex
+          args: -file-line-error -halt-on-error -interaction=nonstopmode
+
       - name: Stage compiled PDFs
         run: |
           mkdir -p docs
@@ -91,6 +100,7 @@ jobs:
           cp blackrock-rqa-audit/resume.pdf docs/blackrock-rqa-audit.pdf
           cp blackrock-client-experience/resume.pdf docs/blackrock-client-experience.pdf
           cp edf-trading/resume.pdf docs/edf-trading.pdf
+          cp balyasny/resume.pdf docs/balyasny.pdf
           ls -lh docs/
 
       - name: Commit and push PDFs
