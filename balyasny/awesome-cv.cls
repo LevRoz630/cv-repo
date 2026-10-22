@@ -467,7 +467,7 @@
 % entries apart, so it must stay positive or entries climb into the one above.
 \newcommand{\acvEntryTopSkip}{1.5mm}
 % Gap between the Skills section rule and the first skill row. See \cvskills below.
-\newcommand{\acvSkillsTopSkip}{4mm}
+\newcommand{\acvSkillsTopSkip}{1.7mm}
 
 
 %-------------------------------------------------------------------------------
@@ -793,9 +793,14 @@
 
 % Define an environment for cvskill
 \newenvironment{cvskills}{%
-  % A bare tabularx starts flush against the section rule -- measured at -3.3pt, i.e. the first
-  % row printing above the heading's baseline, where `cventries` sections sit 10-13pt clear.
-  % \acvSkillsTopSkip buys that gap back so every section heading is spaced the same way.
+  % \cvsection never issues a \par, so without this one TeX is still in horizontal mode with the
+  % heading's line open: the \vspace below is deferred to wherever that line breaks, and whether
+  % it survives depends on the font metrics of the machine compiling. It held locally and was
+  % swallowed on the GitHub runner, which has no small caps for Roboto and so breaks differently.
+  % \par closes the heading, putting the skip in vertical mode where it is unconditional.
+  \par
+  % A bare tabularx then starts flush against the section rule, where `cventries` sections sit
+  % 10-13pt clear. \acvSkillsTopSkip buys that gap back so every heading is spaced the same way.
   \vspace{\acvSectionContentTopSkip}
   \vspace{\acvSkillsTopSkip}
     \setlength\tabcolsep{1ex}
