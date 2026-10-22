@@ -16,7 +16,8 @@
 \documentclass[11pt, a4paper]{awesome-cv}
 
 % Configure page margins with geometry
-\geometry{left=1.0cm, top=.45cm, right=1.0cm, bottom=.7cm, footskip=.25cm}
+% footskip must stay above ~13.6pt or fancyhdr drives the footer into the last line.
+\geometry{left=1.0cm, top=0.8cm, right=1.0cm, bottom=0.8cm, footskip=.55cm}
 
 % Color for highlights - Black and white theme
 \definecolor{awesome}{HTML}{000000}
@@ -29,9 +30,11 @@
 % Set false if you don't want to highlight section with awesome color
 \setbool{acvSectionColorHighlight}{false}
 
-% Reduce section spacing
-\renewcommand{\acvSectionTopSkip}{-5mm}
-\renewcommand{\acvSectionContentTopSkip}{0.3mm}
+% Section and entry spacing. These are the levers for filling the page: the content
+% is fixed at one page, so the slack goes here rather than into a bottom margin.
+\renewcommand{\acvSectionTopSkip}{0.8mm}
+\renewcommand{\acvSectionContentTopSkip}{1.5mm}
+\renewcommand{\acvEntryTopSkip}{1.5mm}
 
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
@@ -59,7 +62,7 @@
 \makecvheader[C]
 
 % Space between header block and first section
-\vspace{2mm}
+\vspace{1mm}
 
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed

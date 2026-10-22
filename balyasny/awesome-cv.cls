@@ -463,6 +463,9 @@
 % Others
 \newcommand{\acvSectionTopSkip}{0.5mm}
 \newcommand{\acvSectionContentTopSkip}{1.5mm}
+% Gap before each \cventry. Set in resume.tex; it is the only lever that spaces
+% entries apart, so it must stay positive or entries climb into the one above.
+\newcommand{\acvEntryTopSkip}{1.5mm}
 
 
 %-------------------------------------------------------------------------------
@@ -714,7 +717,13 @@
 
 % Define an environment for cventry
 \newenvironment{cventries}{%
-  \vspace{\acvSectionContentTopSkip}\vspace{4.5mm}
+  \vspace{\acvSectionContentTopSkip}
+  % `center` is a trivlist, so it pads itself by \topsep above and below. That padding
+  % is what the old \vspace{-6.5mm} in \cventry was cancelling -- and it over-cancelled,
+  % which is how entries ended up printed on top of each other. Zero it instead, and let
+  % \acvEntryTopSkip be the only thing that spaces entries.
+  \setlength{\topsep}{0pt}
+  \setlength{\partopsep}{0pt}
   \begin{center}
 }{%
   \end{center}
@@ -722,7 +731,7 @@
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
 \newcommand*{\cventry}[5]{%
-  \vspace{-6.5mm}
+  \vspace{\acvEntryTopSkip}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
@@ -783,7 +792,6 @@
 % Define an environment for cvskill
 \newenvironment{cvskills}{%
   \vspace{\acvSectionContentTopSkip}
-  \vspace{-2.0mm}
     \setlength\tabcolsep{1ex}
     \setlength{\extrarowheight}{0pt}
     \tabularx{\textwidth}{r>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}X}
